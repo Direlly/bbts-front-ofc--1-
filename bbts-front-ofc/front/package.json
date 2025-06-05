@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve.js",
-    "build": "ng build --configuration production",
+    "build": "npx ng build --configuration production",
     "test": "ng test"
   },
   "dependencies": {
+    "@angular/cli": "^latest_version",
     "@angular/animations": "^20.0.0",
     "@angular/common": "^20.0.0",
     "@angular/compiler": "^20.0.0",
