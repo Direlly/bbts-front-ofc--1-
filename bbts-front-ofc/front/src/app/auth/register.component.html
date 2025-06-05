@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<div class="cadastro-content">
+     <app-imagem></app-imagem>
+
+    <div class="login-container">
+      <mat-card class="login-card">
+        <div class="flex-title">
+          <div><img src="assets/image.png" alt="Imagem" class="titulo-imagem" /></div>
+
+          <div> 
+            <h2 class="mat-headline text-center">Bem vindo ao ChatBBTS</h2>
+          </div>
+        </div>
+
+         <form (ngSubmit)="register()" #registerForm="ngForm">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Nome</mat-label>
+              <input matInput [(ngModel)]="nome" name="nome" required minlength="3" />
+              <mat-error *ngIf="registerForm.controls['nome']?.hasError('required')" class="warning">
+                Nome é obrigatório
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls['nome']?.hasError('minlength')" class="warning">
+                Nome deve ter pelo menos 3 caracteres
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>E-mail</mat-label>
+              <input matInput [(ngModel)]="email" name="email" type="email" required email />
+              <mat-error *ngIf="registerForm.controls['email']?.hasError('required')" class="warning">
+                E-mail é obrigatório
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls['email']?.hasError('email')" class="warning">
+                Por favor, insira um e-mail válido
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>CPF</mat-label>
+              <input matInput [(ngModel)]="cpf" name="cpf" required 
+                    (input)="formatCPF()" maxlength="14" />
+              <mat-error *ngIf="registerForm.controls['cpf']?.hasError('required')" class="warning">
+                CPF é obrigatório
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Senha</mat-label>
+              <input matInput [(ngModel)]="senha" name="senha" type="password" 
+                    required minlength="6" />
+              <mat-error *ngIf="registerForm.controls['senha']?.hasError('required')" class="warning">
+                Senha é obrigatória
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls['senha']?.hasError('minlength')" class="warning">
+                Senha deve ter pelo menos 6 caracteres
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Confirmar Senha</mat-label>
+              <input matInput [(ngModel)]="confirmarSenha" name="confirmarSenha" 
+                    type="password" required [equalTo]="senha" />
+              <mat-error *ngIf="registerForm.controls['confirmarSenha']?.hasError('required')" class="warning">
+                Confirmação de senha é obrigatória
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls['confirmarSenha']?.hasError('equalTo')" class="warning">
+                As senhas não coincidem
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" class="full-width" type="submit">
+              Cadastrar
+            </button>
+          </form>
+      </mat-card>
+    </div>
+</div>

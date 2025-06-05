@@ -1,0 +1,42 @@
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<div class="container" *ngIf="!isLoggedIn">
+  <div class="login-card">
+    <img src="assets/mobile-preview.png" alt="App Preview" class="phone-img" />
+    <h1>Bem-vindo ao ChatBBTS</h1>
+    <form (ngSubmit)="login()">
+      <input type="text" placeholder="Nome" [(ngModel)]="username" name="username" required />
+      <input type="text" placeholder="CPF" [(ngModel)]="cpf" name="cpf" required />
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<div class="chat-container" *ngIf="isLoggedIn && !isChatEnded">
+  <div class="chat-header">ChatBBTS</div>
+  <div class="chat-messages">
+    <div class="message" *ngFor="let msg of messages">
+      <strong>{{msg.sender}}:</strong> {{msg.text}}
+    </div>
+  </div>
+  <form (ngSubmit)="sendMessage()" class="chat-input">
+    <input [(ngModel)]="newMessage" name="message" placeholder="Digite sua mensagem..." required />
+    <button type="submit">Enviar</button>
+  </form>
+  <div class="chat-footer">
+    {{ chatStatus }}
+    <button (click)="endChat()" class="end-button">Encerrar Atendimento</button>
+  </div>
+</div>
+
+<div class="chat-container" *ngIf="isChatEnded">
+  <div class="chat-header">ChatBBTS</div>
+  <div class="chat-messages">
+    <div class="message">
+      Atendimento Finalizado<br />
+      Agradecemos seu contato!
+    </div>
+  </div>
+</div>

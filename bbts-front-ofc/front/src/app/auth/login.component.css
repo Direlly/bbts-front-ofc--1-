@@ -1,0 +1,100 @@
+/* Adicione isso ao seu arquivo CSS existente */
+
+/* Mantém o fundo azul existente */
+.cadastro-content {
+  display: flex;
+  height: 100vh;
+  background: #465EFF; /* Mantém o azul original */
+}
+
+/* Ajuste do card de login */
+.login-card {
+  background: rgba(65, 84, 204, 0.571); /* Fundo escuro transparente */
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Botão com contraste */
+button[mat-raised-button] {
+  background-color: white;
+  color: #465EFF; /* Texto na cor do fundo azul */
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mantendo o resto do seu CSS original */
+.flex-title {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+  align-items: center;
+}
+
+.mat-headline {
+  color: white;
+  margin: 0;
+}
+.warning{
+  font-size: 14px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+app-imagem {
+  flex: 1;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  flex: 1;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-width {
+  width: 100%;
+  color: white;
+  margin-bottom:1rem;
+}
+input{
+  padding-left: 15px;
+}
+
+.titulo-imagem {
+  width: 45px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .cadastro-content {
+    flex-direction: column;
+  }
+
+  app-imagem {
+    display: none;
+  }
+  
+  .login-container {
+    height: auto;
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .login-card {
+    padding: 1.5rem;
+  }
+}

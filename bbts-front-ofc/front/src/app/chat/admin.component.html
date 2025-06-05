@@ -1,0 +1,59 @@
+<div class="home-container">
+
+  <section class="contato-content">
+    <div class="side-bar-menu">
+      <div id="perfil">
+        <img src="assets/user.jpg" alt="" id="user-perfil">
+      </div>
+      <img src="assets/image.png" alt="" class="logo">
+
+      <div id="tools">
+        <img src="assets/icons8-logout-30.png" (click)="logout()" title="Sair">  
+      </div>
+    </div>
+
+    <section id="contato-content">
+         <div class="contact-list">
+          <div 
+             *ngFor="let cliente of clientesConectados"
+            class="contact-item">
+              <div class="contact-header">
+                <img src="assets/user.jpg"/>
+                <div class="cliente-nome">{{ cliente.nome }}</div>
+              </div>
+              <span class="cliente-mensagem">{{ cliente.ultimaMensagem }}</span>
+          </div>
+        </div>
+    </section>
+  </section>
+
+  <div class="conversa-container">
+    <!-- Cabeçalho do chat -->
+    <div class="chat-header">
+      <img src="assets/user.jpg" alt="Perfil">
+      <h1>João</h1>
+    </div>
+
+    <div class="message-area" #messageArea>
+      <div class="mensagens-box">
+        <div *ngFor="let msg of mensagens" class="mensagem">{{ msg }}</div>
+      </div>
+    </div>
+
+    <div class="message-input">
+      <mat-form-field class="full-width">
+        <input 
+          matInput 
+          [(ngModel)]="mensagemAtual" 
+          placeholder="Digite sua mensagem..." 
+          (keyup.enter)="enviarMensagem()" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="enviarMensagem()">
+        Enviar
+      </button>
+    </div>
+  </div>
+  
+</div>
+

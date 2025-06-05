@@ -1,0 +1,64 @@
+
+<div class="chat">
+  <section>
+    <div class="side-bar-menu">
+       <div id="perfil">
+        <img src="assets/user.jpg" alt="" id="user-perfil">
+      </div>
+
+      <img src="assets/image.png" alt="" class="logo">
+
+       <div id="tools">
+        <img src="assets/icons8-logout-30.png" (click)="logout()" title="Sair">  
+      </div>
+    </div>
+  </section>
+
+  <div class="chat-wrapper">
+     <div class="conversa-container">
+        <!-- Cabeçalho do chat -->
+        <div class="chat-header">
+          <img src="assets/user.jpg" alt="Perfil">
+          <h1>João</h1>
+        </div>
+
+          <div class="message-area" #messageArea>
+            <ng-container *ngIf="adminOnline; else redirect">
+                <div class="mensagens-box">
+                  <p class="text-green-600">Chat iniciado com um atendente!</p>
+                </div>
+            </ng-container>
+
+            <ng-template #redirect>
+              <div class="mensagem">
+                  <p class="text-red-600">Nenhum atendente disponível.</p>
+                    <a
+                      mat-raised-button
+                      color="accent"
+                      class="mt-4 text-left"
+                      [href]="whatsappLink"
+                      target="_blank"
+                    >
+                      Ir para o WhatsApp
+                    </a>
+              </div>
+            </ng-template>
+         </div>
+
+            <div class="message-input">
+              <mat-form-field class="full-width">
+                <input
+                  matInput 
+                  placeholder="Digite sua mensagem..." />
+              </mat-form-field>
+              <button mat-raised-button color="primary">
+                Enviar
+              </button>
+            </div>
+      </div>
+  </div>
+</div>
+
+
+
+

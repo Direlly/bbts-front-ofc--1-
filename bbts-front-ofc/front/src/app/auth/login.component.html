@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<section class="cadastro-content">
+  <app-imagem></app-imagem>
+
+    <div class="login-container">
+      <mat-card class="login-card">
+        <div class="flex-title">
+          <div><img src="assets/image.png" alt="Imagem" class="titulo-imagem" /></div>
+
+          <div> 
+            <h2 class="mat-headline text-center">Entrar</h2>
+          </div>
+        </div>
+
+        <form (ngSubmit)="login()" [formGroup]="form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" required />
+            <mat-error *ngIf="form.get('cpf')?.hasError('required')" class="warning">
+              CPF é obrigatório
+            </mat-error>
+            <mat-error *ngIf="form.get('cpf')?.hasError('pattern')" class="warning">
+              Digite um CPF válido
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha" required />
+            <mat-error *ngIf="form.get('senha')?.hasError('required')" class="warning">
+              Senha é obrigatória
+            </mat-error>
+            <mat-error *ngIf="form.get('senha')?.hasError('minlength')" class="warning">
+              Senha deve ter pelo menos 6 caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="loading">
+            <span *ngIf="!loading">Entrar</span>
+            <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+          </button>
+        </form>
+      </mat-card>
+    </div>
+</section>
