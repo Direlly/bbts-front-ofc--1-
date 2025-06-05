@@ -1,3 +1,3 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:8080' };
+  apiUrl: 'https://bbts-front-ofc-1.vercel.app/' };
